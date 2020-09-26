@@ -34,10 +34,15 @@ public class DefaultDAGTask<R> implements DAGTask<R> {
     public int inDegree() {
         return indegree.get();
     }
+//
+//    @Override
+//    public int removeFrom(DAGTask<R> task) {
+//        return indegree.decrementAndGet();
+//    }
 
     @Override
-    public int removeFrom(DAGTask<R> task) {
-        return indegree.decrementAndGet();
+    public Callable<R> getRawCallable() {
+        return this.callable;
     }
 
     public R call() throws Exception {

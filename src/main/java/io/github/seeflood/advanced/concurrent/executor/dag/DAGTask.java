@@ -11,6 +11,8 @@ public interface DAGTask<R> extends Callable<R> {
     int from(DAGTask<R> from);
 
     int inDegree();
+//
+//    int removeFrom(DAGTask<R> task);
 
-    int removeFrom(DAGTask<R> task);
+    Callable<R> getRawCallable();
 }
