@@ -48,6 +48,7 @@ E. 函数式并行
 为了简化上述任务图的并发编程，我写了个图线程池，见https://github.com/seeflood/Advanced-Concurrent/blob/master/src/test/java/io/github/seeflood/advanced/concurrent/executor/dag/DAGTaskExecutorImplTest.java
 
 假设有一组做菜任务，任务图如下,其中烧水/洗菜/听歌可以并行，烧水/洗菜/听歌都做好了才能切菜，切菜完成了才能炒菜
+
  ![image.png](https://upload-images.jianshu.io/upload_images/8926363-83b487d5c655f3e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
  
 那么使用图线程池执行这些任务，只需要构造好DAG，扔到线程池里执行即可，代码如下：
