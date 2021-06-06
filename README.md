@@ -15,7 +15,8 @@ java的线程池ExecutorService适合提交互相之间没有依赖的任务，�
 例如有一组做菜任务，任务图如下,其中烧水/洗菜/听歌可以并行，烧水/洗菜/听歌都做好了才能切菜，切菜完成了才能炒菜。
 
  ![image.png](https://upload-images.jianshu.io/upload_images/8926363-83b487d5c655f3e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-用ExecutorService处理这组任务会很痛苦。
+ 
+如果用ExecutorService处理这组任务会很痛苦。
 
 #### 图线程池
 为了任务图的并发编程，我写了个图线程池，见https://github.com/seeflood/Advanced-Concurrent/blob/master/src/test/java/io/github/seeflood/advanced/concurrent/executor/dag/DAGTaskExecutorImplTest.java
