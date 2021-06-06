@@ -21,7 +21,8 @@ java的线程池ExecutorService适合提交互相之间没有依赖的任务，�
 #### 使用图线程池简化并发编程
 为了简化任务图类的并发编程，我写了个图线程池，见https://github.com/seeflood/Advanced-Concurrent/blob/master/src/test/java/io/github/seeflood/advanced/concurrent/executor/dag/DAGTaskExecutorImplTest.java
 
-例如使用图线程池执行上述做菜任务，只需要构造好任务图，扔到线程池里执行即可，代码如下：
+例如使用图线程池执行上述做菜任务，只需要构造好任务图，扔到线程池里执行即可。
+代码如下：
 ```
         // construct the task graph
         DAGTaskGroup<String> dag = new DAGTaskGroup<>();
@@ -41,6 +42,7 @@ java的线程池ExecutorService适合提交互相之间没有依赖的任务，�
         submit.forEach((k, v) -> System.out.println("result map value:" + v));
 
 ```
+所有的线程调度逻辑由框架自动解决，开发者不需要关心任何线程调度逻辑，不需要考虑怎么调度线程以便让烧水/洗菜/听歌最大化并行，不需要考虑怎么用同步工具类来保证三个任务都完成了才能执行切菜————你只需要声明任务图
 
 ## TODO
 
