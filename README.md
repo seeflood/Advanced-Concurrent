@@ -21,7 +21,7 @@ java的线程池ExecutorService适合提交互相之间没有依赖的任务，�
 #### 使用图线程池简化并发编程
 为了简化任务图类的并发编程，我写了个图线程池，见https://github.com/seeflood/Advanced-Concurrent/blob/master/src/test/java/io/github/seeflood/advanced/concurrent/executor/dag/DAGTaskExecutorImplTest.java
 
-例如使用图线程池执行上述做菜任务，只需要构造好DAG，扔到线程池里执行即可，代码如下：
+例如使用图线程池执行上述做菜任务，只需要构造好任务图，扔到线程池里执行即可，代码如下：
 ```
         // construct the task graph
         DAGTaskGroup<String> dag = new DAGTaskGroup<>();
