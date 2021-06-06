@@ -23,6 +23,7 @@ java的线程池ExecutorService适合提交互相之间没有依赖的任务，�
 
 例如使用图线程池执行上述做菜任务，只需要构造好DAG，扔到线程池里执行即可，代码如下：
 ```
+        // construct the task graph
         DAGTaskGroup<String> dag = new DAGTaskGroup<>();
         Callable<String> one_one = () -> handle("烧水");
         Callable<String> one_two = () -> handle("洗菜");
@@ -34,6 +35,7 @@ java的线程池ExecutorService适合提交互相之间没有依赖的任务，�
         dag.link(one_three, two_one);
         dag.link(two_one, three_one);
         dag.link(one_three, three_one);
+        // submit 
         DAGTaskExecutorImpl executor = new DAGTaskExecutorImpl(Executors.newFixedThreadPool(3));
         Map<Callable, String> submit = executor.submit(dag);
         submit.forEach((k, v) -> System.out.println("result map value:" + v));
